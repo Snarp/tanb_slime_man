@@ -1,0 +1,112 @@
+@import "variables";
+
+html, .light { 
+  @include rebase($base3,$base2,$base1,$base0,$base00,$base01,$base02,$base03);
+}
+.dark { 
+  @include rebase($base03,$base02,$base01,$base00,$base0,$base1,$base2,$base3);
+}
+html * {
+  color-profile: sRGB;
+  rendering-intent: auto;
+}
+body {
+  background-color: $background-color;
+  color:            $text-color;
+  font-family:      $font-family;
+  font-size:        18px;
+  line-height:      1.6;
+}
+a {
+  color: $accent-color;
+  &:hover { color: darken($accent-color, 5%); }
+}
+.container { 
+  width:      66%; 
+  max-width:  800px; 
+}
+
+h1#page-title { margin-top: 2rem; }
+
+.tumblr_blog {
+  font-family: $font-family-monospace; 
+  font-weight: bold; 
+}
+.npf_row { 
+  display: flex; 
+  align-items: center; 
+  figure { 
+    max-width:  100%; 
+    max-height: 100%; 
+    padding:    1px;
+    margin:     0 0 1em 0;
+    img { max-width: 100%; max-height: 100%; vertical-align: center; }
+  }
+}
+
+nav.pager {
+  margin: 6rem auto;
+  ul { 
+    display:         flex;
+    justify-content: space-between;
+    list-style-type: none;
+    a {
+      font-family:     $font-family-monospace;
+      text-decoration: none;
+      font-weight:     bold;
+      color:           $em-text-color;
+    }
+  }
+}
+
+.post {
+  margin: 6rem auto; 
+  img.usericon { width: 64px; max-width: 64px; }
+
+  .post-header { margin-bottom: 1em; }
+  .post-footer { margin-top:    1em; }
+  .post-header, .post-footer {
+    background-color: $highlight-bg-color;
+    a {        color: $em-text-color; }
+    padding:          1.6rem;
+    font-family:      $font-family-monospace;
+    display:          flex;
+    justify-content:  space-between;
+    .user { a { vertical-align: top; font-weight: bold; } }
+    .tags { 
+      margin-right: 1em; 
+      span { margin-right: 0.6em; } 
+    }
+    .note-count {
+      margin-left: 1em; 
+      white-space: nowrap; 
+    }
+  }
+
+  blockquote, .question {
+    border-left:  3px solid $accent-color;
+    margin-left:  0;
+    padding-left: 1.6em;
+  }
+
+  .text-body {
+    figure {
+      width:      100%;
+      padding:    0;
+      margin:     1em 0;
+      img { max-width: 100%; }
+    }
+  }
+  .imageset {
+    margin:     1em auto; 
+    text-align: center; 
+    .imageset-row {
+      display:          flex;
+      justify-content:  center;
+      a   { 
+        max-width: 100%; max-height: 100%; 
+        img { max-width: 100%; max-height: 100%; }
+      }
+    }
+  }
+} //.post

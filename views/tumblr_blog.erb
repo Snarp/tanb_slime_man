@@ -1,0 +1,11 @@
+<h1 id="page-title"><a href="/blog/<%=@page.uuid%>"><%= @title %></a></h1>
+
+<%= erb :_pager %>
+
+<div class="posts blog-posts">
+<% for @post in @page.posts %>
+<%= erb :_post_view %>
+<% end %>
+</div>
+
+<%= erb :_pager %>

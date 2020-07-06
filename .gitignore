@@ -1,0 +1,5 @@
+.ruby-gemset
+.bundle
+*.swp
+*.env*
+Gemfile.lock
