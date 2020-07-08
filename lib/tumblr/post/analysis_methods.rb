@@ -62,8 +62,8 @@ module Tumblr
       def reblogged_from
         return nil unless @hash[:reblogged_from_id]
         {
-          post_id:   @hash[:reblogged_from_id], 
-          post_url:  @hash[:reblogged_from_url], 
+          id:        @hash[:reblogged_from_id], 
+          url:       @hash[:reblogged_from_url], 
           blog_id:   @hash[:reblogged_from_uuid], 
           blog_name: @hash[:reblogged_from_name], 
         }
@@ -73,8 +73,8 @@ module Tumblr
       def reblogged_root
         return nil unless @hash[:reblogged_root_id]
         {
-          post_id:   @hash[:reblogged_root_id], 
-          post_url:  @hash[:reblogged_root_url], 
+          id:        @hash[:reblogged_root_id], 
+          url:       @hash[:reblogged_root_url], 
           blog_id:   @hash[:reblogged_root_uuid], 
           blog_name: @hash[:reblogged_root_name], 
         }

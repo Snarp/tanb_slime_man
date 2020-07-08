@@ -45,7 +45,7 @@ module Tumblr
     # NOTE: As of 2020-05-09, :before_id is working!, but still undocumented.
     #       (:before and :after still are not.)
     def dashboard(limit: nil, offset: nil, before_id: nil, since_id: nil, 
-                  reblog_info: nil, notes_info: nil, type: nil, npf: nil, **args)
+                  reblog_info: true, notes_info: nil, type: nil, npf: nil, **args)
       get_body('v2/user/dashboard', limit: limit, offset: offset, before_id: before_id,  since_id: since_id, reblog_info: reblog_info, notes_info: notes_info, npf: npf, **args)
     end
 

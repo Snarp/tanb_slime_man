@@ -2,7 +2,7 @@
 
   get "/" do
     redirect("/dashboard") if tumblr_authorized?
-    @title = 'Page Title'
+    @title = page_title()
     erb :index
   end
 

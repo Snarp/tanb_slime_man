@@ -1,0 +1,12 @@
+<div class="text-body text-body-trail">
+<% if @post.trail.count!=1 || @post.reblog? %>
+  <% for subpost in @post.trail %>
+  <blockquote class="trail-item<%=" root-item" if subpost[:is_root_item]%><%=" current-item" if subpost[:is_current_item]%>">
+    <p><a class="tumblr_blog<%=" inactive" if !subpost[:blog][:active]%>" href="/blog/<%=subpost[:blog][:name]%>/post/<%=subpost[:post][:id]%>"><%=subpost[:blog][:name]%></a>:</p>
+    <div><%=subpost[:content_raw]%></div>
+  </blockquote>
+  <% end %>
+<% else %>
+  <%= @post.trail.first[:content_raw] %>
+<% end %>
+</div><!--/div.text-body-->

@@ -1,0 +1,21 @@
+  <div class="text-body<%=" reblog-text-body" if @post.reblog? %>">
+<% if [:text,:photo,:audio,:video].include?(@post.type) %>
+  <div class="text"><%= @post.body %></div>
+<% elsif @post.type==:answer %>
+  <div class="question"><p><a href="<%=@post.answer[:asking_url]%>"><%=@post.answer[:asking_name]%></a> asked:</p> <%=@post.answer[:question]%></div>
+  <div class="answer"><%=@post.answer[:answer]%></div>
+<% elsif @post.type==:link %>
+  <p><a class="post-link" href="<%=@post.link[:url]%>"><%=@post.link[:title]%></a></p>
+  <div class="excerpt"><%=@post.link[:excerpt]%></div>
+  <div class="description"><%=@post.link[:description]%></div>
+<% elsif @post.type==:quote %>
+  <div class="quote-text"><%=@post.quote[:text]%></div>
+  <div class="quote-source">- <%=@post.quote[:source]%></div>
+<% elsif @post.type==:chat %>
+  <div class="chat">
+    <% for line in @post.dialogue %>
+    <p><b><%=line[:name]%>:</b> <%=line[:phrase]%></p>
+    <% end %>
+  </div>
+<% end %>
+  </div><!--/div.text-body-->

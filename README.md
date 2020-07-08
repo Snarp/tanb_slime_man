@@ -2,7 +2,7 @@
 
 A Sinatra-based Tumblr client that re-enables stable dashboard pagination but does BASICALLY nothing else.
 
-## LOCAL SETUP
+## Local Setup
 
 1. Set `TUMBLR_CONSUMER_KEY`, `TUMBLR_CONSUMER_SECRET`, and `SESSION_SECRET` in `_env`. (A Tumblr consumer key and secret can be acquired by registering an application at <https://www.tumblr.com/oauth/apps>; a session secret should be generated randomly for each device you deploy the app on.)
 
@@ -14,7 +14,7 @@ A Sinatra-based Tumblr client that re-enables stable dashboard pagination but do
 bundle exec shotgun config.ru
 ```
 
-## HEROKU DEPLOYMENT
+## Heroku Deployment
 
 1. Push to Heroku:
 
@@ -31,9 +31,8 @@ heroku config:set TUMBLR_CONSUMER_SECRET=...
 heroku config:set SESSION_SECRET=...
 ```
 
-## ORIGINAL TEMPLATE CLONED FROM
+## Original Template Cloned From
 
 <http://os.alfajango.com/heroku-sinatra-mvc/>
 
 <git://github.com/JangoSteve/heroku-sinatra-app.git>
-

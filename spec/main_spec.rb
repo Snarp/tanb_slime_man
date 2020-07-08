@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/spec_helper'
 
-describe "My App" do
+describe "main" do
   include Rack::Test::Methods
 
   def app

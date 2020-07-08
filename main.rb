@@ -17,6 +17,8 @@ set :logging,         true
 set :dump_errors,     true
 
 use Rack::Session::EncryptedCookie, secret: ENV['SESSION_SECRET'], expire_after: 2592000
+# enable :sessions
+# set :session_secret,  ENV['SESSION_SECRET']
 
 configure :production, :development do
   enable :logging

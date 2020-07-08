@@ -1,5 +1,17 @@
 module ApplicationHelpers
 
+  def page_title(title=nil, base_title: base_title())
+    if title
+      return "#{title} | #{base_title}"
+    else
+      return base_title
+    end
+  end
+
+  def base_title
+    "tanb" + "."*(rand 2..12) + "slime man"
+  end
+
   def link_to(text, url, opts = {})
     attributes = ''
     opts.each do |k, v|

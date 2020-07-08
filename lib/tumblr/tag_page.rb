@@ -1,9 +1,10 @@
 module Tumblr
   class TagPage
-    attr_accessor :posts, :request
+    attr_accessor :posts, :request, :tag
 
-    def initialize(posts: [], request: {}, **dropped)
+    def initialize(posts: [], request: {}, tag: nil, **dropped)
       @posts   = posts.map { |post| Tumblr::Post.new(post) }
+      @tag     = tag
       @request = request
     end
 

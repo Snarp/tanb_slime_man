@@ -75,6 +75,11 @@ module Tumblr
       @hash[:tags].any?
     end
 
+    def is_pinned
+      @hash[:is_pinned]
+    end
+    alias_method :pinned?, :is_pinned
+
     # def body
     #   if   (@hash[:caption] || @hash[:body]) && @hash[:type]!='chat'
     #     return @hash[:caption] || @hash[:body]
@@ -98,6 +103,10 @@ module Tumblr
       @hash[:caption]
     end
 
+    def trail
+      @hash[:trail]
+    end
+
 
 
     # MEDIA
@@ -116,7 +125,7 @@ module Tumblr
         if width && player=val.detect{|h| h[:width]==width }
           return player[:embed_code]
         else
-          return val.first[:embed_code]
+          return val.last[:embed_code]
         end
       else
         return nil
@@ -166,6 +175,10 @@ module Tumblr
 
     # NOTES / INTERACTIONS
     # ------
+
+    def liked?
+      @hash[:liked]
+    end
 
     def note_count
       @hash[:note_count]

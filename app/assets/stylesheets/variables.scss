@@ -20,7 +20,7 @@ $green:     #859900;
 
 $background-color:   $base3;
 $text-color:         $base00;
-$accent-color:       $cyan;
+$brand-color:        $cyan;
 $muted-text-color:   $base1;
 $em-text-color:      $base01;
 $highlight-bg-color: $base2;
@@ -57,5 +57,5 @@ $highlight-bg-color: $base2;
 // Fonts
 
 $font-family-serif: "Libre Baskerville", Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, "Times New Roman", serif;
-$font-family-monospace: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;;
+$font-family-monospace: 'Inconsolata', Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;;
 $font-family: $font-family-serif;

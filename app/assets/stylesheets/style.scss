@@ -1,3 +1,5 @@
+@import "normalize";
+@import "skeleton";
 @import "variables";
 
 html, .light { 
@@ -18,8 +20,9 @@ body {
   line-height:      1.6;
 }
 a {
-  color: $accent-color;
-  &:hover { color: darken($accent-color, 5%); }
+  color: $brand-color;
+  &:link, &:visited, &:active { color: $brand-color; }
+  &:hover { color: darken($brand-color, 5%); }
 }
 .container { 
   width:      66%; 
@@ -63,30 +66,55 @@ nav.pager {
   margin: 6rem auto; 
   img.usericon { width: 64px; max-width: 64px; }
 
-  .post-header { margin-bottom: 1em; }
-  .post-footer { margin-top:    1em; }
-  .post-header, .post-footer {
+  .post-tools, .post-header, .post-footer {
     background-color: $highlight-bg-color;
     a {        color: $em-text-color; }
     padding:          1.6rem;
     font-family:      $font-family-monospace;
     display:          flex;
     justify-content:  space-between;
-    .user { a { vertical-align: top; font-weight: bold; } }
+    .user { 
+      a { vertical-align: top; font-weight: bold; } 
+    }
+    .timestamp {
+      text-align: right; 
+    }
+  }
+  .post-tools  { 
+    flex-direction: row-reverse; 
+    margin-bottom:  0; 
+    padding-bottom: 0;
+    .pin { color: $brand-color; }
+  }
+  .post-header { margin-bottom:  1em; }
+  .post-footer { 
+    justify-content: flex-end; 
+    margin-top:      1em; 
+    div { 
+      margin-left: 1em; 
+      &:first-child { margin-left: 0; }
+    }
+    .source a { color: $brand-color; }
     .tags { 
-      margin-right: 1em; 
+      flex-grow: 4; 
       span { margin-right: 0.6em; } 
     }
     .note-count {
-      margin-left: 1em; 
       white-space: nowrap; 
+    }
+    .icons { 
     }
   }
 
   blockquote, .question {
-    border-left:  3px solid $accent-color;
+    border-left:  3px solid $brand-color;
     margin-left:  0;
     padding-left: 1.6em;
+  }
+  blockquote.current-item {
+    border:       0; 
+    margin-left:  0; 
+    padding-left: 0; 
   }
 
   .text-body {
@@ -94,6 +122,7 @@ nav.pager {
       width:      100%;
       padding:    0;
       margin:     1em 0;
+      text-align: center;
       img { max-width: 100%; }
     }
   }

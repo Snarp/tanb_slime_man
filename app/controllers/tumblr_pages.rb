@@ -30,6 +30,11 @@ require 'sinatra/json'
     end
   end
 
+  get '/blog/:blog/post/:id' do
+    blog = params.delete(:blog)
+    redirect("/blog/#{blog}?#{params.to_query}")
+  end
+
   # TODO: Test with nonexistent blog, empty, etc.
   get '/blog/:blog' do
     args = normalize_request(params)
@@ -61,22 +66,22 @@ require 'sinatra/json'
   get '/tag/:tag' do
     args      = normalize_request(params)
     json      = args.delete :json
-    tag       = args.delete :tag
+    @tag      = args.delete :tag
     prev_page = args.delete :prev
-    resp      = get_tag(tag, args)
+    resp      = get_tag(@tag, args)
     if   !resp.is_a?(Array)
       halt_error(resp.status, resp.message)
     elsif json
       json resp
     else
-      @page = Tumblr::TagPage.new(posts: resp, request: args, newer_page: prev_page)
-      @title = "##{tag}"
+      @page = Tumblr::TagPage.new(tag: @tag, posts: resp, request: args, newer_page: prev_page)
+      @title = "##{@tag}"
 
       if @page.newer_page
-        @newer_path = "/tag/#{tag}?#{@page.newer_page.to_query}"
+        @newer_path = "/tag/#{@tag}?#{@page.newer_page.to_query}"
       end
       if @page.older_page
-        @older_path = "/tag/#{tag}?#{@page.older_page.to_query}"
+        @older_path = "/tag/#{@tag}?#{@page.older_page.to_query}"
       end
       erb :tumblr_tag
     end
